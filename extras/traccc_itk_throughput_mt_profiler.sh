@@ -35,13 +35,14 @@ usage() {
 }
 
 # Parse the command line arguments.
-TRACCC_EXECUTABLE=${TRACCC_EXECUTABLE:-"traccc_throughput_mt"}
-TRACCC_INPUT_DIR=${TRACCC_INPUT_DIR:-"ATLAS-P2-RUN4-03-00-01/"}
+TRACCC_EXECUTABLE=${TRACCC_EXECUTABLE:-"/eos/home-e/exochell/traccc/traccc_st_plots/traccc/build/bin/traccc_throughput_mt_cuda"}
+TRACCC_INPUT_DIR=${TRACCC_INPUT_DIR:-"/eos/project/a/atlas-eftracking/GPU/ITk_data/ATLAS-P2-RUN4-03-00-01/"}
 TRACCC_MIN_THREADS=${TRACCC_MIN_THREADS:-1}
 TRACCC_MAX_THREADS=${TRACCC_MAX_THREADS:-$(nproc)}
 TRACCC_THREAD_STEP=${TRACCC_THREAD_STEP:-1}
 TRACCC_REPETITIONS=${TRACCC_REPETITIONS:-5}
-TRACCC_CSV_FILE=${TRACCC_CSV_FILE:-"output.csv"}
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+TRACCC_CSV_FILE=${TRACCC_CSV_FILE:-"output_${TIMESTAMP}.csv"}
 TRACCC_THROUGPUT_TYPE=${TRACCC_THROUGPUT_TYPE:-"traccc"}
 while getopts ":x:i:m:t:r:c:y:h" opt; do
    case $opt in
